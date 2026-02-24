@@ -2,21 +2,33 @@ import React, { useState } from "react";
 import DonorCard from "./cards";
 
 function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
-  const [selectedGroup, setSelectedGroup] = useState("");
-  const [citySearch, setCitySearch] = useState("");
-  const [sortAvailability, setSortAvailability] = useState("");
+  // data-> Array of all donors object
+  // bloodGroups-> List of bloodGroups
+  // requestStatus -> Object tracking which donors are requeste
+  // handlerequest -> Function to handle request button clicks
 
-  // Filter donors by blood group & city
+  
+  const [selectedGroup, setSelectedGroup] = useState("");
+  selectedGroup → Filters donors by blood group
+  const [citySearch, setCitySearch] = useState("");
+  citySearch → Filters donors by city name
+  const [sortAvailability, setSortAvailability] = useState("");
+  // sortAvailability → Controls sorting order
+
+  
+  // Filters donors by blood group & city
   const filteredData = data.filter((user) => {
     const userBloodGroup = bloodGroups[user.id % bloodGroups.length];
+    // assignes bloodgroups
     const matchesGroup = selectedGroup ? userBloodGroup === selectedGroup : true;
     const matchesCity = citySearch
       ? user.address.city.toLowerCase().includes(citySearch.toLowerCase())
       : true;
     return matchesGroup && matchesCity;
+    // adds the user to filtereddata if both matchescity and macthesgroup are true
   });
 
-  // Sort filtered donors by availability
+  // Sort filtered donors by availability had used spread operator to store eveerything inside filetered data into an array
   const sortedData = [...filteredData].sort((a, b) => {
     if (sortAvailability === "availableFirst") {
       return (b.id % 2 === 0) - (a.id % 2 === 0);
@@ -26,17 +38,18 @@ function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
     return 0;
   });
 
+
+  
   return (
     <div className="px-6 py-8">
 
-      {/* Centered Top Bar */}
       <div className="flex justify-center items-center gap-4 mb-8 bg-white shadow-md rounded-xl p-4 flex-wrap">
-        {/* Title */}
+       
         <h2 className="text-2xl font-bold text-red-600">
           All Donors
         </h2>
 
-        {/* Blood Group Filter */}
+        {/* filter blood group */}
         <select
           value={selectedGroup}
           onChange={(e) => setSelectedGroup(e.target.value)}
@@ -57,7 +70,7 @@ function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
           className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
         />
 
-        {/* Sort by Availability */}
+        {/* set sortavailability based on the value selected */}
         <select
           value={sortAvailability}
           onChange={(e) => setSortAvailability(e.target.value)}
@@ -69,7 +82,7 @@ function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
         </select>
       </div>
 
-      {/* Donor Cards */}
+      {/* display donor cards for all donors */}
       {sortedData.length === 0 ? (
         <div className="flex justify-center items-center h-96">
           <p className="text-gray-500 text-xl">No donors found</p>
