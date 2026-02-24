@@ -37,7 +37,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        
+        {/* size is smaller than md (medium breakpoin */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
