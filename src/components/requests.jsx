@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import RequestCard from "./requestcard";
 
 function Requests({ data, bloodGroups, requestStatus }) {
+
+  // state for city seacrh
   const [citySearch, setCitySearch] = useState("");
 
-  // Filter only requested donors
+  // stores datas of users with requestStatus =true
   const requestedUsers = data.filter((user) => requestStatus[user.id]);
 
-  // Filter requested donors by city search
+  // Filtered users based on city search
   const filteredUsers = requestedUsers.filter((user) =>
     citySearch
       ? user.address.city.toLowerCase().includes(citySearch.toLowerCase())
@@ -17,12 +19,12 @@ function Requests({ data, bloodGroups, requestStatus }) {
   return (
     <div className="px-6 py-12 min-h-screen flex flex-col items-center">
 
-      {/* Title */}
+     
       <h2 className="text-3xl font-bold text-red-600 mb-6 text-center">
         Requested Donors
       </h2>
 
-      {/* City Search */}
+      {/* input tag to search donors based on cities  */}
       <input
         type="text"
         placeholder="Search by city"
@@ -31,8 +33,10 @@ function Requests({ data, bloodGroups, requestStatus }) {
         className="mb-10 w-72 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
       />
 
-      {/* If no requested donors */}
+
+      {/* conditional statments */}
       {filteredUsers.length === 0 ? (
+      {/* Displays no Donors found if there are no users with those respective search letters */}
         <div className="flex flex-col items-center justify-center h-96">
           <p className="text-xl text-gray-500">
             No donors found
@@ -42,11 +46,14 @@ function Requests({ data, bloodGroups, requestStatus }) {
           </p>
         </div>
       ) : (
-        // Cards grid
+      
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
           {filteredUsers.map((user) => {
+          // maps through every user in filtereedusers and add them to a card
             const userBloodGroup = bloodGroups[user.id % bloodGroups.length];
+          // Assigning random blood groups
             const available = user.id % 2 === 0;
+          // making user available only if its id is divisible by 2
 
             return (
               <RequestCard
