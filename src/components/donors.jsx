@@ -13,6 +13,11 @@ function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
   const [citySearch, setCitySearch] = useState("");
  // citySearch → Filters donors by city name
   const [sortAvailability, setSortAvailability] = useState("");
+  
+  // sortavailability stores the option chosen from >
+  //         <option value="">Sort by availability</option>
+  //         <option value="availableFirst">Available First</option>
+  //         <option value="notAvailableFirst">Not Available First</option>
  // user is made avaialable to donate if its id is divisible by 2
 
   
@@ -28,7 +33,8 @@ function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
     // adds the user to filtereddata if both matchescity and macthesgroup are true
   });
 
-  // Sort filtered donors by availability had used spread operator to store eveerything inside filetered data into an array
+  // // Sort filtered donors by availability had used spread operator to store eveerything inside filetered data into an array
+  // We use b - a to sort in descending order (available first since true = 1) and a - b to sort in ascending order (not available first since false = 0).
   const sortedData = [...filteredData].sort((a, b) => {
     if (sortAvailability === "availableFirst") {
       return (b.id % 2 === 0) - (a.id % 2 === 0);
