@@ -9,10 +9,10 @@ function Banner() {
           "url('https://images.unsplash.com/photo-1615461066841-6116e61058f4')",
       }}
     >
-      {/* Dark Overlay */}
+      
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Content */}
+      
       <div className="relative z-10 text-center text-white px-6 max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Why Blood Donation is Important
