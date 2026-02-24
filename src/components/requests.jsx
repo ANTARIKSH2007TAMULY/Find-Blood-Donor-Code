@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RequestCard from "./requestcard";
 
 function Requests({ data, bloodGroups, requestStatus }) {
+  // data → Full list of users/donors bloodGroups → Array of blood group requestStatus → Object that tracks which donors are requested (by user.id)
 
   // state for city seacrh
   const [citySearch, setCitySearch] = useState("");
