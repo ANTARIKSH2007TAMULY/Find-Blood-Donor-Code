@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className="w-full bg-red-700 text-white shadow-md relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
         
-        {/* Logo */}
+        
         <div className="flex items-center">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGQMav2bhYC_mB5PoJJaBJBLKzJOmsaoo-w&s"
@@ -17,14 +17,14 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Title */}
+       
         <div className="hidden md:block">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide text-center">
             Find-My-Donor 🩸
           </h1>
         </div>
 
-        {/* Links */}
+        
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="text-lg sm:text-xl hover:text-red-200 transition duration-200">
             Home
@@ -37,7 +37,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Hamburger for mobile */}
+        
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -70,7 +70,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      
       {isOpen && (
         <div className="md:hidden bg-red-600 px-4 pt-2 pb-4 space-y-2">
           <Link
