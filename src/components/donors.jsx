@@ -38,6 +38,9 @@ function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
   const sortedData = [...filteredData].sort((a, b) => {
     if (sortAvailability === "availableFirst") {
       return (b.id % 2 === 0) - (a.id % 2 === 0);
+      // user.id % 2 === 0
+      // Even ID → true → Available → becomes 1
+      //   Odd ID → false → Not Available → becomes 0  
     } else if (sortAvailability === "notAvailableFirst") {
       return (a.id % 2 === 0) - (b.id % 2 === 0);
     }
