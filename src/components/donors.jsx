@@ -9,11 +9,11 @@ function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
 
   
   const [selectedGroup, setSelectedGroup] = useState("");
-  selectedGroup → Filters donors by blood group
+ // selectedGroup → Filters donors by blood group
   const [citySearch, setCitySearch] = useState("");
-  citySearch → Filters donors by city name
+ // citySearch → Filters donors by city name
   const [sortAvailability, setSortAvailability] = useState("");
-  // sortAvailability → Controls sorting order
+ // user is made avaialable to donate if its id is divisible by 2
 
   
   // Filters donors by blood group & city
@@ -90,7 +90,9 @@ function Donors({ data, bloodGroups, requestStatus, handleRequest }) {
       ) : (
         <div className="flex flex-wrap gap-10 justify-center">
           {sortedData.map((user) => {
+            // assign bloodgroup
             const userBloodGroup = bloodGroups[user.id % bloodGroups.length];
+          // user is made avaialable to donate if its id is divisible by 2
             const available = user.id % 2 === 0;
 
             return (
