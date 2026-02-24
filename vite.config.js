@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: '/Find-My-Donor-React-App/', // ✅ important for GitHub Pages
+  base: '/Find-My-Donor-Code/', // ✅ important for GitHub Pages
   plugins: [react(), tailwindcss()],
 })

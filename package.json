@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://antariksh2007tamuly.github.io/Find-My-Donor-React-App",
+  "homepage": "https://antariksh2007tamuly.github.io/Find-My-Donor-Code",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
