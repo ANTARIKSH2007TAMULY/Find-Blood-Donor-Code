@@ -4,12 +4,12 @@ export default function RequestCard({ donor }) {
   return (
     <div className="bg-white shadow-md rounded-2xl p-6 w-110 hover:shadow-2xl hover:-translate-y-1 transform transition-all duration-300">
 
-      {/* Name Header */}
+      
       <div className="bg-red-600 text-white text-lg font-bold rounded-xl px-4 py-2 mb-4 text-center shadow-inner">
         {donor.name}
       </div>
 
-      {/* User Info */}
+      
       <div className="space-y-2 text-gray-700">
         <p>
           <span className="font-semibold">Username: </span>{donor.username}
@@ -26,7 +26,7 @@ export default function RequestCard({ donor }) {
         </p>
       </div>
 
-      {/* Blood Group & Availability */}
+      {/* Below code is Just to show the Bloodgroup and since it shows requests only so all the donors are available so it always shows avaialabe */}
       <div className="flex justify-between items-center mt-4">
         <span className="px-3 py-1 rounded-full bg-red-100 text-red-600 font-semibold">
           {donor.bloodGroup}
@@ -41,7 +41,7 @@ export default function RequestCard({ donor }) {
         </span>
       </div>
 
-      {/* Optional CTA */}
+      {/*  it is just showing the Request Help button because donor.avaialble is always true cz these cards are only used when donor.available is true */}
       {donor.available && (
         <div className="mt-4 text-center">
           <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full font-semibold transition duration-200">
