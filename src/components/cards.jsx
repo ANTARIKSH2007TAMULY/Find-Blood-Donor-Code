@@ -7,8 +7,8 @@ export default function DonorCard({ donor, onRequest, isRequested }) {
 
 
   const buttonStyle = isRequested
-    ? "bg-green-500 cursor-not-allowed"
-    : "bg-red-500 hover:bg-red-600";
+  ? "bg-green-500 cursor-not-allowed"
+  : "bg-red-500 hover:bg-red-600";
 
   return (
     <div
@@ -60,10 +60,10 @@ export default function DonorCard({ donor, onRequest, isRequested }) {
       {donor.available && (
         <button
           onClick={() => onRequest(donor.id)}
-          disabled={isRequested}
+          
           className={`w-full py-2 rounded-md text-white font-semibold transition duration-200 ${buttonStyle}`}
         >
-          {isRequested ? "Request Sent ✅" : "Request Help"}
+          {isRequested ? "Unsend Request ❌" : "Request Help"}
         </button>
       )}
     </div>
