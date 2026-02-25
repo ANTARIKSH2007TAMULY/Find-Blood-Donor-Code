@@ -36,12 +36,12 @@ function App() {
     getData();
   }, []);
 
-  function handleRequest(id) {
-    setRequestStatus((user) => ({
-      ...user,
-      [id]: true,
-    }));
-  }
+ function handleRequest(id) {
+  setRequestStatus((prev) => ({
+    ...prev,
+    [id]: !prev[id],
+  }));
+}
 
   return (
     <HashRouter>
